@@ -27,16 +27,14 @@ router.post('/signup', auth, async (r,s) => {
     }
     const user = new Users(r.body);
     try {
-        const tkn = await randtoken.generate(300);
-        user.verify = tkn;
+        user.verify = await randtoken.generate(300);
         await user.save();
-        const userObject = await user.toObject();
-        delete userObject.tokens;
-        delete userObject.avatar;
-        delete userObject.password;
-        delete userObject.verify;
         sendVerificationEmail(user.email,user.verify);
-        s.status(201).send({userObject})
+        s.status(201).send({
+            "_id": user._id,
+            "username": user.username,
+            "email": user.email,
+            "admin": user.admin})
     } catch (e) {
         s.status(400).send(e);
     }
@@ -109,7 +107,6 @@ router.get('/profile', auth, async (r,s) => {
     const user = r.user;
     try {
         const userObject = await user.toObject();
-        delete userObject.tokens;
         delete userObject.avatar;
         delete userObject.admin;
         delete userObject.createdAt;

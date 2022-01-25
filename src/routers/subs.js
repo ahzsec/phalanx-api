@@ -49,7 +49,7 @@ router.post('/subs', auth, async (r,s) => {
 
 router.put('/subs', auth, async (r,s) => {
     const body = Object.keys(r.body);
-    const allowUpdates = ['domain'];
+    const allowUpdates = ['domain','subdomains'];
     const isValid = body.every((update) => allowUpdates.includes(update));
     if (!isValid){
         s.status(400).send({error: "invalid updates"});
@@ -59,14 +59,14 @@ router.put('/subs', auth, async (r,s) => {
         const subs = await Subs.findOneAndUpdate({
             domain: r.query.d,
             owner: r.user._id}, {
-            domain: r.body.domain
+            ...r.body
         });
         await subs.save();
         if (!subs){
             s.status(404).send({msg: "not found"});
             return;
         }
-        s.send(subs.subdomains)
+        s.send({...r.body})
     } catch (e) {
         s.status(500).send()
     }

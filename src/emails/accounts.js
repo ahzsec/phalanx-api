@@ -1,16 +1,23 @@
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+templates = {
+    verify_your_email_address: "d-68b4297aab244d8bb1abbb755fc781d9"
+};
+
 const sendVerificationEmail = (email,token) => {
     sgMail.send({
         to: email,
         from: 'ahmedelsir6@gmail.com',
         subject: "Verify your email address",
-        text: `Thanks for signing up for Phalanx! We're excited to have you as an early user.\n\nhttps://phalanx.herokuapp.com/verfiy?tkn=${token}\n\nThanks,\nThe Phalanx Team`
+        templateId: templates.verify_your_email_address,
+        dynamic_template_data: {
+            email_verification_url:  token
+        }
     }).then(() => {
         console.log('message sent')
     }).catch((e) => {
-        console.log()
+        console.log(e)
     });
 };
 
@@ -23,7 +30,7 @@ const sendDeletedEmail = (email) => {
     }).then(() => {
         console.log('message sent')
     }).catch((e) => {
-        console.log()
+        console.log(e)
     });
 };
 
