@@ -8,7 +8,7 @@ templates = {
 const sendVerificationEmail = (email,token) => {
     sgMail.send({
         to: email,
-        from: 'ahmedelsir6@gmail.com',
+        from: 'example@example.com',
         subject: "Verify your email address",
         templateId: templates.verify_your_email_address,
         dynamic_template_data: {
