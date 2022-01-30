@@ -1,6 +1,4 @@
-node_modules
-config
-tests
-src/emails/verification-template.html
-.idea
-.gitignore
+node_modules/
+config/
+tests/
+.idea/
