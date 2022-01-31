@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/ahzsec/phalanx-api">
-    <img src="https://a.top4top.io/p_25958281e1.png" alt="Phalanx API Logo" width="500">
+    <img src="preview/logo.png" alt="Phalanx API Logo" width="500">
   </a>
   <h3 align="center" style="color:#45a5da;">A data transferrer and collector for penetration testers</h3>
 
