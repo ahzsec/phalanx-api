@@ -24,4 +24,4 @@
 
 
 # Disclaimer
-Phalanx API has been in private development since 2020, While later versions are available, Version 1.0.0 is shared as a public good for penetration testers, Check the code before you add it to your workflow and use it at your own risk.
+Phalanx API has been in private development for a few years. While later versions are available, v1.5.3 is released as a public good for penetration testers. Review the code before adding it to your workflow, and use at your own risk.
