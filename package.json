@@ -1,0 +1,37 @@
+{
+  "name": "phalanx-restful-api",
+  "version": "1.0.0",
+  "description": "This is the main phalanx restful api for transferring and collecting data",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmedcj/phalanx-restful-api.git"
+  },
+  "author": "Ahmed Sinada",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.2.6",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "multer": "^1.4.2",
+    "rand-token": "^1.0.1",
+    "sharp": "^0.26.1",
+    "supertest": "^5.0.0",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4"
+  }
+}
